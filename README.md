@@ -9,3 +9,4 @@ set the path .Type set FLASK_APP=app.py
 Type flask run in cmd
 
 
+

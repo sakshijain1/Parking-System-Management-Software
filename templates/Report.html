@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sidebar Report Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+</head>
+<style>
+.container {
+margin-top: 15px;
+margin-bottom: 30px;
+padding-bottom: 35px;
+}
+
+fieldset
+{
+  background-color:#CCC;
+  max-width:250px;
+  padding:16px;	
+}
+
+legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {background-color: #008CBA;}
+.button2 {background-color: #008CBA;}
+.button3 {background-color: #008CBA;}
+.button4 {background-color: #008CBA;}
+.button5 {background-color: #008CBA;}
+</style>
+  <body>
+
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <!--sidebar start-->
+    <div class="sidebar">
+      <div class="left_area">
+        <h3>Admin</h3>
+      </div>
+<br>
+<a href="/MyDetailsAdmin/{{id}}"><i class='fas fa-address-card'></i><span>My Details</span></a>
+<a href="/Dashboard/{{id}}"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+<a href="/modify_location/{{id}}"><i class='far fa-edit'></i><span>Modify Location</span></a>
+<a href="/Report/{{id}}"><i class='fas fa-chart-bar'></i><span>Reports</span></a>
+<a href="/UpdateDetails/{{id}}"><i class='fas fa-sync-alt'></i><span>Update Details</span></a>
+<a href="/MessageCenter/{{id}}"><i class='far fa-envelope-open'></i><span>Message Centre</span></a>
+  <a href="/Update_slots/{{id}}"><i class='far fa-envelope-open'></i><span>Update slots</span></a>
+<a href="/"><i class='fas fa-sign-out-alt'></i><span>Logout</span></a>
+      
+    </div>
+   
+    <div class="content">
+<br>
+<div class="container">
+  <!-- Content here -->
+<form action="/Download" method="POST" >
+
+<center><h2 style="background-color:#05CAC9">Daily Vehicle IN and OUT</h2></center>
+<center>
+
+<table border = "1" cellpadding = "3" cellspacing = "0">
+  <tr ><strong>
+  <td>Emp_ID</td>
+  <td>Employee Name</td>
+  <td>Vehicle Number</td>
+  <td>In Time</td>
+  <td>Out Time</td>
+ <td>Vehicle Type</td>
+ <td>Updated_date</td>
+ <td>Building</td>
+ <td>City</td>
+ <td>Slot Number</td>
+  </strong>
+  </tr>
+  {%for row in list%}
+<tr>
+<td><center>{{row.0}}</center></td>
+<td><center>{{row.1}}</center></td>
+<td><center>{{row.2}}</center></td>
+<td><center>{{row.3}}</center></td>
+<td><center>{{row.4}}</center></td>
+<td><center>{{row.5}}</center></td>
+<td><center>{{row.6}}</center></td>
+<td><center>{{row.7}}</center></td>
+<td><center>{{row.8}}</center></td>
+<td><center>{{row.9}}</center></td>
+
+  </tr>
+  {%endfor%}
+
+
+<br>
+
+</table>
+<br>
+<center><a href="/Report/{{id}}"><button type="button" class="add">Refresh</button></a></center>
+</center>
+<br>
+<center><h2 style="background-color:#05CAC9">Reports</h2></center>
+<center> <input type="text" placeholder="Emp id/Emp_Name/veh no/Type" name="search" style="width: 300px; height:25px">
+<div class="row" style="padding:10px">
+<div class="col">
+</fieldset>
+<fieldset >
+  <legend>Choose the attribute</legend>
+    
+  
+  <table width="50%" align="left">
+    <table cellpadding = "3" cellspacing = "0">
+
+      <tr>
+        <td><input type="radio" name="attribute" value="Emp_Name" > Name</td>
+        
+      
+      
+        <td><input type="radio" name="attribute" value="Veh_Type         " > Type</td>
+        
+      
+      </tr>
+   
+      <tr>
+        <td> <input type="radio" name="attribute" value="Veh_No"> Vehicle No</td>
+   
+      
+      
+        <td> <input type="radio" name="attribute" value="Emp_Id"> Employee ID</td>
+        
+        
+      </tr>
+      <td> <input type="radio" name="attribute" value="All"> All</td>
+      </table>
+  
+</fieldset>
+<br>
+<fieldset >
+  <legend>Choose the building</legend>
+  <table width="50%" align="left">
+    <table cellpadding = "3" cellspacing = "0">
+
+   
+      {%for row in building%}
+  <tr>
+    
+    <td><input type="checkbox" name="interest" value={{row.0}}{{j}}{{row.1}}>{{row.0}} {{row.1}}</td>
+   
+   
+</tr>
+{%endfor%}
+<tr>
+
+  <td><input type="checkbox" id="AL" name="interest" value="AL">All Locations</td>
+ 
+</tr>
+
+    </table>
+</div>
+<center>
+<div class="col-md">
+  
+<table>
+<table width="50%" align="left">
+<table border = "1" cellpadding = "3" cellspacing = "0">
+ 
+<tr>
+  <td><label for="start">Start date:</label>
+<select name="days" id="days">
+  <option>Day</option>
+  <option value="01">01</option>
+  <option value="02">02</option>
+  <option value="03">03</option>
+  <option value="04">04</option>
+  <option value="05">05</option>
+  <option value="06">06</option>
+  <option value="07">07</option>
+  <option value="08">08</option>
+  <option value="09">09</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
+  <option value="16">16</option>
+  <option value="17">17</option>
+  <option value="18">18</option>
+  <option value="19">19</option>
+  <option value="20">20</option>
+  <option value="21">21</option>
+  <option value="22">22</option>
+  <option value="23">23</option>
+  <option value="24">24</option>
+  <option value="25">25</option>
+  <option value="26">26</option>
+  <option value="27">27</option>
+  <option value="28">28</option>
+  <option value="29">29</option>
+  <option value="30">30</option>
+  <option value="31">31</option>
+  
+  
+</select>
+<select name="months" id="months">
+<option>Month</option>
+  <option value="01">Jan</option>
+  <option value="02">Feb</option>
+  <option value="03">Mar</option>
+  <option value="04">April</option>
+  <option value="05">May</option>
+  <option value="06">June</option>
+  <option value="07">July</option>
+  <option value="08">Aug</option>
+  <option value="09">Sept</option>
+  <option value="10">Oct</option>
+  <option value="11">Nov</option>
+  <option value="12">Dec</option>
+</select>
+<select name="year" id="year">
+<option>Year</option>
+  <option value="2020">2020</option>
+  <option value="2021">2021</option>
+  <option value="2022">2022</option>
+  <option value="2023">2023</option>
+</select> 
+</td>
+<td><label for="end">End date:</label>
+<select name="days1" id="days1">
+<option>Day</option>
+  <option value="01">01</option>
+  <option value="02">02</option>
+  <option value="03">03</option>
+  <option value="04">04</option>
+  <option value="05">05</option>
+  <option value="06">06</option>
+  <option value="07">07</option>
+  <option value="08">08</option>
+  <option value="09">09</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
+  <option value="16">16</option>
+  <option value="17">17</option>
+  <option value="18">18</option>
+  <option value="19">19</option>
+  <option value="20">20</option>
+  <option value="21">21</option>
+  <option value="22">22</option>
+  <option value="23">23</option>
+  <option value="24">24</option>
+  <option value="25">25</option>
+  <option value="26">26</option>
+  <option value="27">27</option>
+  <option value="28">28</option>
+  <option value="29">29</option>
+  <option value="30">30</option>
+  <option value="31">31</option>
+  
+  
+</select>
+<select name="months1" id="months1">
+<option>Month</option>
+   <option value="01">Jan</option>
+  <option value="02">Feb</option>
+  <option value="03">Mar</option>
+  <option value="04">April</option>
+  <option value="05">May</option>
+  <option value="06">June</option>
+  <option value="07">July</option>
+  <option value="08">Aug</option>
+  <option value="09">Sept</option>
+  <option value="10">Oct</option>
+  <option value="11">Nov</option>
+  <option value="12">Dec</option>
+</select>
+<select name="year1" id="year1">
+<option>Year</option>
+  <option value="2020">2020</option>
+  <option value="2021">2021</option>
+  <option value="2022">2022</option>
+  <option value="2023">2023</option>
+</select> 
+
+  
+     </td>
+ 
+  </tr><br><br>
+</table>
+
+<br>
+<center>
+<button class="button button1" formaction="/Download" >Download</button>
+<button class="button button1" formaction="/ExceptionReport" >Exception Report Download</button>
+</center><br>
+<center>
+
+<div class="btn-group" style="width:110%">
+  <button style="width:90%" class="button button2"  formaction="/Yesterday" align="center">Yesterday</button>
+  <button style="width:90%" class="button button3" formaction="/LastMonth" align="center">Last Month</button><br>
+  <button style="width:90%" class="button button4" formaction="/LastWeek" align="center">Last Week</button>
+  <button style="width:90%" class="button button5" formaction="/Last6Month" align="center">Last 6 month</button>
+
+</div>
+</center>
+</div>
+</div>
+</center>
+<br>
+</table>
+</center>
+</div>   <!......container...>
+</div>
+
+  </body>
+</html>
+
+<!---->
+

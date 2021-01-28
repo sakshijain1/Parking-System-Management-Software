@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<style xmlns="http://www.w3.org/1999/html">
+
+
+.container {
+border: 5px solid #B22222;
+border-radius: 10px;
+margin-top: 15px;
+margin-bottom: 30px;
+padding-bottom: 35px;
+}
+
+input[type=text]:focus {
+  border: 1px solid #DCDCDC;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 18px;
+  display:table;
+  margin:auto;
+  border-collapse:collapse;
+  height:100%;
+}
+
+th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+td {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+html, body {
+	margin:0;
+	padding:0;
+	height:100%
+}
+
+
+
+    @media screen and (max-width: 1000px) {
+      .row.content {height: auto;}
+    }
+	</style>
+<html lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="refresh" content="1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+  <body>
+<center>
+    <div class="container-fluid" >
+<center><h2 style="background-color:#05CAC9">Available Slots</h2></center>
+        <center>
+          <table border = "0" cellpadding = "3" cellspacing = "0">
+  <tr>
+      <center><th><center><i class='fa fa-building' style='font-size:300%;color:black'></i></center></th></center>
+      <center><th><center><i class='fas fa-wheelchair' style='font-size:300%;color:black'></i>Two Wheeler</center></th></center>
+      <center><th><center><i class='fas fa-wheelchair' style='font-size:300%;color:black'></i>Four Wheeler</center></th></center>
+      <center><th><center><i class="fa fa-motorcycle" style="font-size:300%;color:black"></i></center></th></center>
+      <center><th><center><i class='fas fa-car-alt' style='font-size:300%;color:black'></i></center></th></center>
+  </tr>
+  {% for row in total_slots %}
+
+ <tr>
+    <center><td>{{row.0}}</td></center>
+    <center><td>{{row.1}}</td></center>
+    <center><td>{{row.2}}</td></center>
+    <center><td>{{row.3}}</td></center>
+    <center><td>{{row.4}}</td></center>
+ </tr>
+  {% endfor %}
+
+ </table>
+        </center>
+
+<br>
+    </div>
+</center>
+  </body>
+</html>
+
+
+

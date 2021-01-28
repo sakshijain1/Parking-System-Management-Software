@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Message Center Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+  </head>
+  <body>
+<center>
+
+<h1 style="background-color:#05CAC9">Send Email to Admin:</h1>
+
+<form action="mailto:someone@example.com" method="post" enctype="text/plain">
+  <label for="sub">Subject:</label><br>
+    <select name="sub" id="sub" style="width: 400px;">
+      <option></option>
+      <option value="sub1">Registration Issue</option>
+      <option value="sub2">Parking Issue</option>
+      <option value="sub3">Other</option>
+      
+    </select>
+  <br><br>
+  
+  Message:<br>
+  <textarea id="text" name="message" rows="10" style="width: 400px;">
+  </textarea><br><br>
+  <input type="submit" value="Send">
+  <a href="/EmployeePage/{{id}}/Y"><button type="button" class="add">Return to Main Page</button></a>
+  </form>
+  
+
+</center>
+  </body>
+</html>

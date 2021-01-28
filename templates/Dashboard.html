@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<style>
+
+
+
+input[type=text]:focus {
+  border: 1px solid #DCDCDC;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 18px;
+}
+
+th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+td {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+    @media screen and (max-width: 1000px) {
+      .row.content {height: auto;} 
+    }
+	</style>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sidebar Dashboard Template</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   
+</head>
+  <body>
+
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <!--sidebar start-->
+    <div class="sidebar">
+      <div class="left_area">
+        <h3>Admin</h3>
+      </div>
+<br>
+<a href="/MyDetailsAdmin/{{id}}"><i class='fas fa-address-card'></i><span>My Details</span></a>
+<a href="/Dashboard/{{id}}"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+<a href="/modify_location/{{id}}"><i class='far fa-edit'></i><span>Modify Location</span></a>
+<a href="/Report/{{id}}"><i class='fas fa-chart-bar'></i><span>Reports</span></a>
+<a href="/UpdateDetails/{{id}}"><i class='fas fa-sync-alt'></i><span>Update Details</span></a>
+<a href="/MessageCenter/{{id}}"><i class='far fa-envelope-open'></i><span>Message Centre</span></a>
+  <a href="/Update_slots/{{id}}"><i class='far fa-envelope-open'></i><span>Update slots</span></a>
+<a href="/"><i class='fas fa-sign-out-alt'></i><span>Logout</span></a>
+    </div>
+    <!--sidebar end-->
+
+   <center>
+    <div class="container-fluid" >
+<center><h2 style="background-color:#05CAC9">Available Slots</h2></center>
+        <center>
+          <table border = "0" cellpadding = "3" cellspacing = "0">
+  <tr>
+      <center><th><center><i class='fa fa-building' style='font-size:300%;color:black'></i></center></th></center>
+      <center><th><center><i class='fas fa-wheelchair' style='font-size:300%;color:black'></i>Two Wheeler</center></th></center>
+      <center><th><center><i class='fas fa-wheelchair' style='font-size:300%;color:black'></i>Four Wheeler</center></th></center>
+      <center><th><center><i class="fa fa-motorcycle" style="font-size:300%;color:black"></i></center></th></center>
+      <center><th><center><i class='fas fa-car-alt' style='font-size:300%;color:black'></i></center></th></center>
+  </tr>
+  {% for row in total_slotsPune %}
+
+ <tr>
+    <center><td>{{row.0}}</td></center>
+    <center><td>{{row.1}}</td></center>
+    <center><td>{{row.2}}</td></center>
+    <center><td>{{row.3}}</td></center>
+    <center><td>{{row.4}}</td></center>
+ </tr>
+  {% endfor %}
+
+ 
+ 
+ </table>
+        </center>
+
+<br>
+    </div>
+</center>
+
+
+<br>
+<br>
+<form method="get" action="/Dashboard/{{id}}">
+    <button type="submit">Refresh</button>
+</form>
+
+    </div>
+
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

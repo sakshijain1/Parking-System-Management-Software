@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<!--
+    <title>Sidebar Modify Location Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    -->
+<style>
+.container {
+margin-top: 15px;
+margin-bottom: 30px;
+padding-bottom: 35px;
+}
+</style>
+</head>
+
+<body>
+
+    <!--header area start-->
+<div class="content"> 
+<br>
+<center><h1 style="background-color:#05CAC9">Swipe Card</h1>
+
+<div class="container">
+  <!-- Content here -->
+<form method="post" >
+
+<center>
+
+<table border = "1" cellpadding = "2" cellspacing = "0" >
+<tr><tr>
+ <td>PSID</td>
+  <td>City</td>
+  <td>Building</td>
+  <td>Vehicle Type</td>
+  
+
+</tr></tr>
+
+<tr><tr>
+  <td><center><input type="text" size="8" name="PSID"/></center></td>
+<td><select id="Location" name = "LocationIn" >
+    <option value="Pune">Pune</option>
+    <option value="Hyderabad">Hyderabad</option></select>
+</td>
+
+<td><center><input type="text" size="20" name="BuildingIn"/></center></td>
+
+<td><select id="TypeVeh" name = "TypeVehIn" >
+  <option value="Two Wheeler">Two Wheeler</option>
+  <option value="Four Wheeler">Four Wheeler</option>
+  <option value="Specially Abled Two Wheeler">Specially Abled Two Wheeler</option>
+  <option value="Specially Abled Four Wheeler">Specially Abled Four Wheeler</option>
+</select>
+</td>
+
+<center><input type="hidden" name="Veh_NOIn"></center>
+
+</tr></tr>
+	
+</table>
+<br>
+<br>
+</center>
+<center><button  type="submit">Submit</button></center>
+</form>
+
+<br>
+
+<br>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+     <h1> {{ message }}</h1>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</div>
+</body>
+</html>

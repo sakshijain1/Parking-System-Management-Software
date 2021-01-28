@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+  
+  </head>
+
+  <body>
+
+   
+</form>
+
+<br>
+<center><h1 style="background-color:#05CAC9">Modify Vehicle Details</h1></center>
+    <form action="/ModifyVehicalEmployee_Search/{{id}}" method=post>
+<div class="wrap" align="center">
+   <div class="search">
+
+      <input type="text" name="no1" class="searchTerm" placeholder="">
+      <button type="submit" class="searchButton">
+        Search
+     </button>
+     <a href="/EmployeePage/{{id}}/Y"><button type="button" class="add">Return to Main Page</button></a>
+   </div>
+</div>
+ </form>
+    <br>
+    <center>
+        <table>
+        <table border = "1" cellpadding = "3" cellspacing = "0">
+            <tr>
+
+                <td>PSID</td>
+                <td>Name</td>
+                <td>Vehicle Number</td>
+                <td>Vehicle Make</td>
+                <td>Vehicle Model</td>
+                <td>Vehicle Type</td>
+                <td>Update Time</td>
+                <td>Updated By</td>
+                   </tr>
+            {% for row in vehical_details%}
+
+            <tr><tr>
+              <form method="POST" action="/ModifyVehicalEmployee/{{row.2}}/{{id}}">
+            <td><input type="text" size=4 name="PSID_u"  id="PSID_u" value="{{row.0}}" readonly></td>
+            <td><input type="text" size=8 name="Name_u"  id="Name_u" value="{{row.1}}" readonly></td>
+            <td><input type="text" size=10 name="Veh_No_u"  id="Veh_No_u" value="{{row.2}}"></td>
+            <td><input type="text" size=10 name="Veh_Make_u"  id="Veh_Make_u" value="{{row.3}}" ></td>
+            <td><input type="text" size=6 name="Model_u"  id="Model_u" value="{{row.4}}" ></td>
+            <td><input type="text" size=6 name="Type_u"  id="Type_u" value="{{row.5}}" ></td>
+            <td><input type="text"  size=15 name="Updated_Time_u"  id="Updated_Time_u" value="{{row.6}}" readonly></td>
+            <td><input type="text" size=8 name="Updated_by"  id="Updated_by" value="{{row.7}}" readonly ></td>
+              
+            <td><button type="submit" class="add"  onclick="return confirm('Are You Sure to Modify?')">Modify</button></td>
+            <input type="hidden" size=8 name="delete"  id="Updated_by" value="n" readonly >
+            
+          </form>
+              
+          
+          <form action="/ModifyVehicalEmployee/{{row.2}}/{{id}}" method="post">
+
+            <input type="hidden" size=4 name="PSID_u"  id="PSID_u" value="n" readonly>
+            <input type="hidden" size=8 name="Name_u"  id="Name_u" value="n" readonly>
+            <input type="hidden" size=10 name="Veh_No_u"  id="Veh_No_u" value="n">
+            <input type="hidden" size=10 name="Veh_Make_u"  id="Veh_Make_u" value="n" >
+            <input type="hidden" size=6 name="Model_u"  id="Model_u" value="n" >
+            <input type="hidden" size=6 name="Type_u"  id="Type_u" value="n" >
+            <input type="hidden"  size=15 name="Updated_Time_u"  id="Updated_Time_u" value="n" readonly>
+            <input type="hidden" size=8 name="Updated_by"  id="Updated_by"value="n" readonly >
+              
+
+
+
+            <td> <button name="delete" value="delete"  onclick="return confirm('Are You Sure For Delete?')">Delete</button></td>
+        </form>
+
+          </a> 
+         
+        </tr>
+
+            </tr>
+            {% endfor %}
+          
+        </table>
+
+    </table>
+    </center>
+
+        <br>
+
+
+
+
+
+
+</div>   
+    </div>
+
+  </body>
+</html>

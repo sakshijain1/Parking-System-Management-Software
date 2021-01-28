@@ -1,0 +1,41 @@
+<html lang="en">
+    <head>
+        <head>
+            <link rel="stylesheet" href="{{ url_for('static', filename='stylelogin.css') }}">
+            <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+            <title>{{title}}</title>
+<script type="text/javascript"> 
+        window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+    </script> 
+          </head>
+    </head>
+    <body>
+        <div class="main">
+            <p class="sign" align="center">{{title}}</p>
+            <form class="form1" action="/loggedin" method="post">
+        
+                <div class="container">
+                
+                <input class="un" type="text" autocomplete="off" align="center" placeholder="Enter EmployeeID" name="user" required>
+            
+                
+                <input class="pass" type="password" align="center" placeholder="Enter Password" name="password" required>
+            
+                <button class="submit" align="center" type="submit">Login</button>
+                
+                </div>
+            </form>
+           
+                    
+                        
+            </div>
+       
+    </body>
+</html>
+
+
